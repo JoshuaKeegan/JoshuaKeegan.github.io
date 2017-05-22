@@ -17,7 +17,7 @@ var vanLocations = [{x: 1000, y: 100}, {x: 800, y: 300},  {x: 1200, y: 500},{x:1
 
 //  this is a comment meant for humans, not c
 function setup() {
-  createCanvas(700,550);
+  createCanvas(750,520);
   img = loadImage("./Dang Daniel.png");
   van = loadImage("./vans.jpg");
   imageMode(CENTER);
@@ -28,7 +28,7 @@ function draw() {
   if (gameOver === true) {
 
     textSize(100);
-    text("DAMN DANIEL", 50, 290);
+    text("GAME OVER", 50, 290);
     fill(255, 0, 0);
 
   }
@@ -36,10 +36,10 @@ function draw() {
     background(0,255,0);
     textBox();
     xVan += speed * direction;
-   image(van,vanLocations[0].x, vanLocations[0].y);
-   image(van, vanLocations[1].x, vanLocations[1].y);
-   image(van, vanLocations[2].x,vanLocations[2].y);
-   image(van, vanLocations[3].x,vanLocations[3].y);
+
+for(var vanimg=0;vanimg<4;vanimg++){
+   image(van,vanLocations[vanimg].x, vanLocations[vanimg].y);
+ }
    vanLocations[0].x-=4
    vanLocations[1].x-=6
    vanLocations[2].x-=8
@@ -95,6 +95,9 @@ function draw() {
       gameOver=true
     }
   }
+  if(gameOver==false){
+   timepassed++
+  }
 }
   function checkIfTouching(xVan, yVan) {
   //   if (x > xVan && x < xVan + wVan && y > yVan && y < yVan+hVan) {
@@ -122,14 +125,12 @@ function draw() {
     // else if(xVan > width){
     //   direction = -1;
     // }
-if(gameOver=false){
- timepassed++
-}
+
 
 
 }
 function textBox(){
 textSize(25);
-text("Score:", 550, 50);
+text("Score:" + timepassed, 550, 50);
 fill(100, 350, 100);
 }
