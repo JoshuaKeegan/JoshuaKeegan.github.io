@@ -1,0 +1,16 @@
+body {
+  background-image:url("damn daniel background.jpg");
+  width: 100%;
+  text-align:center;
+}
+h1 {
+    color: navy;
+    text-align: center;
+}
+p {
+    padding: 2cm 4cm 3cm 4cm;
+}
+
+canvas {
+   display: inline;
+}
